@@ -33,22 +33,25 @@ const sciencePerMs = 0.001;
 
 // Button listeners
 document.getElementById("hunt").addEventListener("click", function () {
-  toggleFood = !toggleFood;
-  toggleStone = false;
-  toggleScience = false;
+  disableResources()
+  toggleFood = true;
 });
 
 document.getElementById("gather").addEventListener("click", function () {
-  toggleStone = !toggleStone;
-  toggleFood = false;
-  toggleScience = false;
+  disableResources()
+  toggleStone = true;
 });
 
 document.getElementById("think").addEventListener("click", function () {
-  toggleScience = !toggleScience;
+  disableResources()
+  toggleScience = true;
+});
+
+function disableResources() {
   toggleFood = false;
   toggleStone = false;
-});
+  toggleScience = false;
+}
 
 // Main function to handle updates and rendering
 function update(deltaTime) {
