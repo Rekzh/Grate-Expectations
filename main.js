@@ -33,18 +33,15 @@ const sciencePerMs = 0.001;
 
 // Button listeners
 document.getElementById("hunt").addEventListener("click", function () {
-  disableResources()
-  toggleFood = true;
+  food++;
 });
 
 document.getElementById("gather").addEventListener("click", function () {
-  disableResources()
-  toggleStone = true;
+  stone++;
 });
 
 document.getElementById("think").addEventListener("click", function () {
-  disableResources()
-  toggleScience = true;
+  science++;
 });
 
 function disableResources() {
@@ -55,11 +52,8 @@ function disableResources() {
 
 // Main function to handle updates and rendering
 function update(deltaTime) {
-  if (toggleFood) food += foodPerMs * deltaTime;
-  if (toggleStone) stone += stonePerMs * deltaTime;
-  if (toggleScience) science += sciencePerMs * deltaTime;
 
-  foodDisplay.textContent = "Food: " + food.toFixed(2);
-  stoneDisplay.textContent = "Stone: " + stone.toFixed(2);
-  scienceDisplay.textContent = "Science: " + science.toFixed(2);
+  foodDisplay.textContent = "Food: " + food;
+  stoneDisplay.textContent = "Stone: " + stone;
+  scienceDisplay.textContent = "Science: " + science;
 }
