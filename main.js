@@ -1,6 +1,7 @@
 let lastTime = null;
 let totalTime = 0;
 
+// Game loop
 setInterval(function loop() {
   const currentTime = performance.now();
   if (lastTime == null) {
@@ -11,8 +12,10 @@ setInterval(function loop() {
   lastTime = currentTime;
 
   update(deltaTime);
+  // Runs 60 times in a second
 }, 1000 / 60);
 
+// Resource definitions
 let food = 0;
 let toggleFood = false;
 const foodDisplay = document.getElementById("food");
@@ -28,6 +31,7 @@ let toggleScience = false;
 const scienceDisplay = document.getElementById("science");
 const sciencePerMs = 0.001;
 
+// Button listeners
 document.getElementById("hunt").addEventListener("click", function () {
   toggleFood = !toggleFood;
   toggleStone = false;
@@ -46,6 +50,7 @@ document.getElementById("think").addEventListener("click", function () {
   toggleStone = false;
 });
 
+// Main function to handle updates and rendering
 function update(deltaTime) {
   if (toggleFood) food += foodPerMs * deltaTime;
   if (toggleStone) stone += stonePerMs * deltaTime;
