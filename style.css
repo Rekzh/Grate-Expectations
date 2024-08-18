@@ -13,8 +13,11 @@
 
 .resources {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  text-align: center;
+  gap: 10px;
   width: 20%;
+  margin-right: 50px;
 }
 
 #sidebar {
@@ -27,6 +30,7 @@
   border-color: red;
 }
 
+/* Disable scroll */
 body {
   height: 100%;
   overflow-y: hidden;

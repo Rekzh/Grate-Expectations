@@ -1,5 +1,7 @@
 let lastTime = null;
 let totalTime = 0;
+const maxPopulation = 50;
+const growthRate = 0.001;
 
 // Game loop
 setInterval(function loop() {
@@ -11,7 +13,7 @@ setInterval(function loop() {
   totalTime += deltaTime;
   lastTime = currentTime;
 
-  update(deltaTime);
+  update(deltaTime, totalTime);
   // Runs 60 times in a second
 }, 1000 / 60);
 
@@ -31,16 +33,19 @@ let toggleScience = false;
 const scienceDisplay = document.getElementById("science");
 const sciencePerMs = 0.001;
 
+let population = 1;
+const populationDisplay = document.getElementById("population");
+
 // Button listeners
-document.getElementById("hunt").addEventListener("click", function () {
+document.getElementById("hunt").addEventListener("click", function() {
   food++;
 });
 
-document.getElementById("gather").addEventListener("click", function () {
+document.getElementById("gather").addEventListener("click", function() {
   stone++;
 });
 
-document.getElementById("think").addEventListener("click", function () {
+document.getElementById("think").addEventListener("click", function() {
   science++;
 });
 
@@ -50,10 +55,18 @@ function disableResources() {
   toggleScience = false;
 }
 
-// Main function to handle updates and rendering
-function update(deltaTime) {
+function updatePopulation(totalTime) {
+  time = totalTime / 1000;
+  population += growthRate * food * (1 - (population / maxPopulation));
+  console.log(population);
+}
 
-  foodDisplay.textContent = "Food: " + food;
-  stoneDisplay.textContent = "Stone: " + stone;
-  scienceDisplay.textContent = "Science: " + science;
+// Main function to handle updates and rendering
+function update(deltaTime, totalTime) {
+  updatePopulation(totalTime);
+
+  foodDisplay.textContent = "Food " + food;
+  stoneDisplay.textContent = "Stone " + stone;
+  scienceDisplay.textContent = "Science " + science;
+  populationDisplay.textContent = "Population " + population.toFixed(0);
 }
