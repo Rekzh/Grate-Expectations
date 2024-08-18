@@ -1,37 +1,38 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport, " content="width=device-width, initial-scale=1" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>Game</title>
+    <script type="text/javascript" src="main.js" defer></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport, " content="width=device-width, initial-scale=1" />
-  <title>Game</title>
-  <script type="text/javascript" src="main.js" defer></script>
-  <link href="style.css" rel="stylesheet" />
-</head>
-
-<body>
-  <div id="header">
-    <div id="age">
-      <h1>Stone Age</h1>
+  <body>
+    <div id="header">
+      <div id="age">
+        <h1>Stone Age</h1>
+      </div>
+      <div class="resources">
+        <p id="food"></p>
+        <p id="stone"></p>
+        <p id="science"></p>
+        <p id="population"></p>
+      </div>
     </div>
-    <div class="resources">
-      <p id="food"></p>
-      <p id="stone"></p>
-      <p id="science"></p>
-      <p id="population"></p>
+    <div id="sidebar">
+      <h3>Production</h3>
+      <h3>Science Tree</h3>
+      <h3>Stats</h3>
+      <h3>Options</h3>
     </div>
-  </div>
-  <div id="sidebar">
-    <h3>Production</h3>
-    <h3>Science Tree</h3>
-    <h3>Stats</h3>
-    <h3>Options</h3>
-  </div>
-  <div id="main">
-    <button type="button" id="hunt" class="resourceButton">Hunt</button>
-    <button type="button" id="gather" class="resourceButton">Gather</button>
-    <button type="button" id="think" class="resourceButton">Think</button>
-  </div>
-</body>
-
+    <div id="main">
+      <button type="button" id="hunt" class="resourceButton">Hunt</button>
+      <button type="button" id="gather" class="resourceButton">Gather</button>
+      <button type="button" id="think" class="resourceButton">Think</button>
+    </div>
+  </body>
 </html>
